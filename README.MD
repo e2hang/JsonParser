@@ -10,11 +10,6 @@
 * **工业级健壮性**：内置详细的错误报告机制，定位错误发生的行、列及偏移量。
 
 ---
-明白你的意思了！你希望 README 聚焦于**开发者文档**，重点展示如何调用库里的各种 `JsonValue` 操作、解析和序列化接口。
-
-以下是为你重新编写的、侧重于 **API 使用说明** 的项目文档：
-
----
 
 ## 💻 快速开始
 
@@ -69,6 +64,24 @@ int main() {
 | `JsonParser` | **解析器**。将字符串转换为 `JsonValue` 对象。 |
 | `JsonSerializer` | **序列化器**。将 `JsonValue` 对象转换为格式化的字符串。 |
 | `JsonError` | **异常类**。提供错误代码及详细的行列定位。 |
+
+---
+
+## 📂 项目结构
+
+```text
+JsonParse/
+├── include/             # 头文件 (.h)
+│   ├── JsonValue.h      # 核心数值类型定义
+│   ├── JsonParser.h     # 解析逻辑
+│   ├── JsonSerializer.h # 序列化逻辑
+│   └── JsonError.h      # 异常处理
+├── src/                 # 源代码 (.cpp)
+├── test/                # 测试用例
+├── E2hangJson.dll       # 运行时库
+└── E2hangJson.lib       # MSVC 导入库
+
+```
 
 ---
 
@@ -298,24 +311,6 @@ cl ./test/test.cpp /I./include /std:c++20 /utf-8 /EHsc E2hangJson.lib /Fe:test_a
 
 ---
 
-## 📂 项目结构
-
-```text
-JsonParse/
-├── include/             # 头文件 (.h)
-│   ├── JsonValue.h      # 核心数值类型定义
-│   ├── JsonParser.h     # 解析逻辑
-│   ├── JsonSerializer.h # 序列化逻辑
-│   └── JsonError.h      # 异常处理
-├── src/                 # 源代码 (.cpp)
-├── test/                # 测试用例
-├── E2hangJson.dll       # 运行时库
-└── E2hangJson.lib       # MSVC 导入库
-
-```
-
----
-
 ## ⚠️ 常见问题排查
 
 ### 1. 链接报错 `__imp_...` (Undefined Reference)
@@ -335,5 +330,3 @@ JsonParse/
 [MIT License](https://www.google.com/search?q=LICENSE)
 
 ---
-
-**你想让我再为你补充一个用于自动化编译的 CMakeLists.txt 模板吗？这样放到 GitHub 上会更专业。**
