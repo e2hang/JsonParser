@@ -27,10 +27,10 @@
 
 int main() {
     // 1. 手动构建 JSON 对象
-    JsonValue root(JsonValue::Type::Object);
+    JsonValue root(JsonValue::Type::Map);
     root["name"] = "E2hang";
     root["version"] = 1.0;
-    root["features"] = JsonValue::Type::Array;
+    root["features"] = JsonValue::Type::List;
     root["features"].push_back("Fast");
     root["features"].push_back("Modern");
 
@@ -116,7 +116,7 @@ JsonValue arr(JsonValue::Type::List);
 JsonValue user;
 user["id"] = 1001;
 user["profile"]["bio"] = "Keep coding.";
-user["tags"] = JsonValue::Type::Array; 
+user["tags"] = JsonValue::Type::List; 
 
 // 检查是否存在某个键
 if (user.is_map()) { /* ... */ }
@@ -126,10 +126,10 @@ if (user.is_map()) { /* ... */ }
 **数组操作：**
 
 ```cpp
-JsonValue list(JsonValue::Type::Array);
+JsonValue list(JsonValue::Type::List);
 list.push_back(1);
 list.push_back("Second");
-list.push_back(JsonValue::Type::Object);
+list.push_back(JsonValue::Type::Map);
 
 // 访问
 std::cout << list[1].asString() << std::endl; // 输出: Second
@@ -187,6 +187,8 @@ std::string compact = JsonSerializer::serialize(root, -1);
 
 ```
 
+其他方法可参考 `test/test.cpp`
+
 ---
 
 ## ⚠️ 开发注意事项
@@ -206,8 +208,8 @@ std::string compact = JsonSerializer::serialize(root, -1);
 ```cpp
 switch (val.type()) {
     using enum JsonValue::Type;
-    case Object: /* 处理对象 */ break;
-    case Array:  /* 处理数组 */ break;
+    case Map: /* 处理对象 */ break;
+    case List:  /* 处理数组 */ break;
     case String: /* 处理字符串 */ break;
     case Number: /* 处理数字 */ break;
     case Bool:   /* 处理布尔 */ break;

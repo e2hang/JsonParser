@@ -29,10 +29,10 @@ Create a `test.cpp` to demonstrate the basic usage:
 
 int main() {
     // 1. Construct a JSON object manually
-    JsonValue root(JsonValue::Type::Object);
+    JsonValue root(JsonValue::Type::Map);
     root["name"] = "E2hang";
     root["version"] = 1.0;
-    root["features"] = JsonValue::Type::Array;
+    root["features"] = JsonValue::Type::List;
     root["features"].push_back("Fast");
     root["features"].push_back("Modern");
 
@@ -89,8 +89,8 @@ JsonValue isDeveloper(true);
 JsonValue data(nullptr); // JSON null
 
 // Explicit container initialization
-JsonValue obj(JsonValue::Type::Object);
-JsonValue arr(JsonValue::Type::Array);
+JsonValue obj(JsonValue::Type::Map);
+JsonValue arr(JsonValue::Type::List);
 
 ```
 
@@ -113,7 +113,7 @@ if (user.is_map()) { /* ... */ }
 **Array Access:**
 
 ```cpp
-JsonValue list(JsonValue::Type::Array);
+JsonValue list(JsonValue::Type::List);
 list.push_back(1);
 list.push_back("Second");
 
