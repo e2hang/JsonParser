@@ -1,0 +1,30 @@
+{
+  "id": 1024,
+  "name": "Sample Project",
+  "active": true,
+  "score": 98.6,
+  "owner": {
+    "username": "Van",
+    "level": 3,
+    "verified": false
+  },
+  "tags": [
+    "C++",
+    "parser",
+    "json",
+    "practice"
+  ],
+  "history": [
+    { "date": "2024-01-01", "event": "created" },
+    { "date": "2024-06-15", "event": "updated" }
+  ],
+  "config": {
+    "timeout": null,
+    "retry": 5,
+    "thresholds": [0.1, 0.5, 0.9]
+  },
+    "测试": {
+        "你好": "2026-01-01",
+        "中文字符": ["一", "二", "三"]
+    }
+}
